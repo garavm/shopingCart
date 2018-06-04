@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     fetch(
-      "https://raw.githubusercontent.com/radik909/cart/master/src/MOCK_DATA.csv"
+      "https://raw.githubusercontent.com/garavm/shopingcart/master/src/MOCK_DATA.csv"
     )
       .then(res => res.text())
       .then(csv => {
@@ -42,12 +42,23 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
 
+        {
+          this.state.data ?
+            this.state.data.map((item, i) => {
+              return (
+                <div key={i}>
+                  <p>{item.product_name}</p>
+                  <p>{item.price}</p>
+                </div>
+              )
+            }) :
+            <p />
+        }
+        
+          </div>
+          );
+        }
+      }
+      
 export default App;
