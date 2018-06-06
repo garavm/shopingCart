@@ -127,7 +127,7 @@ class App extends Component {
         </div>
         <p>Total Quantity: {Object.keys(cart).reduce((acc, key) => {
           const item = cart[key]
-          let quantityOfEachItem = item.quantity
+          let quantityOfEachItem = item.quantity ? item.quantity : 0
           acc += quantityOfEachItem;
           return acc;
         }, 0)}</p>
